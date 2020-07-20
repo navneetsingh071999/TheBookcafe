@@ -1,0 +1,44 @@
+
+	
+	
+.navbar {
+    background-color: lightslategray;
+}
+
+#header{
+    color: yellow;
+}
+
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color:yellow;
+	height: 30px;
+	background-color: lightslategray;
+}
+#footer > .container {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-top:5px;
+}
+label.error{
+    float: none;
+    color: red;
+    padding-left: .5em;
+    vertical-align: top;
+}
+.submit{
+    margin-left: 12em;
+}
+em{
+    font-weight: bold;
+padding-right: 1em;
+vertical-align: top;
+}
+
+.ui-datepicker {
+   background:skyblue;
+   color: #EEE;
+ }

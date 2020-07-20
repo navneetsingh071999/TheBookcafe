@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>TheBookCafè</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--navbar cdn-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!--sidebar-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!--fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+   
+    <title>TheBookCafè</title>
+
+    <style>
+        .color{
+            background-color: #f9f100;
+        }
+        .bcolor{
+            background-color: #f9f7f7;
+        }
+        .size{          
+            padding-left: 10px;
+            height: fit-content;
+            width: 280px;
+            border-right-style:solid;
+            border-right-width: 1px;
+            border-right-color: black;
+        }
+
+        .product_box{
+          margin-left: 1mm;
+          margin-right: 3mm;
+          margin-bottom: 4mm;
+        }
+    </style>
+</head>
+<body>
+	<div class="fluid-container">
+		<nav class="navbar navbar-expand-lg color">
+		  <div class="container-fluid">
+			  <div class="navbar-header">
+				  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+					  <span class="icon-bar"></span>
+				  </button>
+			  <a class="navbar-brand" href="/"><font color="black" face="comic sans ms"><b><span class="glyphicon glyphicon-book"></span> TheBookCafè</b></font></a>
+			  </div>
+				  <div class="collapse navbar-collapse"  id="myNavbar">
+					  <ul class="nav navbar-nav">
+						  <li><a href="/">Home</a></li>
+						  <li class="active"><a href="/store/">Store</a></li>
+						  <li><a href="/aboutus">About Us</a></li>
+						  <li><a href="/contact">Contact</a></li>
+					  </ul>
+					  <form class="navbar-form navbar-left" action='search'>
+						  <div class="input-group">
+							  <input type="text" name="bkname" class="form-control" placeholder="Search..Book name">
+							  <div class="input-group-btn">
+								  <button class="btn btn-default" type="submit">
+									  <i class="glyphicon glyphicon-search"></i>
+								  </button>
+							  </div>
+						  </div>
+					  </form>
+					  {% if user.is_authenticated %}
+						  <ul class="nav navbar-nav navbar-right">
+							  <li class="active"><a class="text-dark">Howday, {{user.first_name}}</a></li>            
+							  <li><a href="/logs/logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+						  </ul>
+					  {% else %}
+					  <ul class="nav navbar-nav navbar-right">
+						  <li><a href="/logs/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>            
+						  <li><a href="/logs/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					  </ul>
+					  {% endif %}
+			  </div>
+		  </div>
+	  </nav>
+	  </div>
+
+
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Contact Us
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Name is required">
+					<input class="input100" id="name" type="text" name="name" placeholder="Name">
+					<label class="label-input100" for="name">
+						<span class="lnr lnr-user"></span>
+					</label>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<input class="input100" id="email" type="text" name="email" placeholder="Email">
+					<label class="label-input100" for="email">
+						<span class="lnr lnr-envelope"></span>
+					</label>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Phone is required">
+					<input class="input100" id="phone" type="text" name="phone" placeholder="Phone">
+					<label class="label-input100" for="phone">
+						<span class="lnr lnr-phone-handset"></span>
+					</label>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+					<textarea class="input100" name="message" placeholder="Your message..."></textarea>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<button class="contact100-form-btn">
+							Submit
+						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+</html>

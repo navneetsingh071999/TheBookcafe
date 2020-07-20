@@ -1,0 +1,179 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About Us</title>
+        <meta name="viewport" content="width=device-width,initial_scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <style>
+        .fa{
+            text-align:center;
+            color: black;
+            font-size:42px;
+            padding: 12px;;
+        }
+        #follow{
+            background-color:#f9f100;
+            text-align: center;
+        }
+        h3,h5{
+            text-align: center;
+        }
+        h2{
+            text-align:left;
+        }
+        .tit{
+            color:grey;
+            font-size:20px;
+            text-align: center;
+        }
+        #btn{
+            background-color: white;
+            border: 2px solid black;
+            float:center;
+            color:black;
+            padding: 15px 32px;
+        }
+        #top{
+            background-color:#f9f100;
+        }
+        #btn:hover{
+            background-color: black;
+            color:white;
+        }
+       
+
+      .title {
+            color: grey;
+            font-size: 18px;
+            text-align: center;
+        }
+        body{
+            background-color: #f9f7f7;
+        }
+        .marginc
+        {
+            margin-right: 11px;
+        }
+        </style>
+    </head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <a class="navbar-brand" href="/"><font color="white" face="comic sans ms"><b><span class="glyphicon glyphicon-book"></span> TheBookCafè</b></font></a>
+            </div>
+                <div class="collapse navbar-collapse"  id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li ><a href="/">Home</a></li>
+                        <li ><a href="/store">Store</a></li>
+                        <li class="active"><a href="/aboutus">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-left" action='/store/search'>
+                        <div class="input-group">
+                            <input type="text" name="bkname" class="form-control" placeholder="Search..Book name">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    {% if user.is_authenticated %}
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="active"><a class="text-warning">Howday, {{user.first_name}}</a></li>            
+                            <li><a href="/logs/logout"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+                        </ul>
+                    {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/logs/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>            
+                        <li><a href="/logs/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                    {% endif %}
+            </div>
+        </div>
+    </nav>
+            
+    <div class="container-fluid">
+        <div class="row">
+        <div class="jumbotron" id="top"><br><br><br>
+            <font align="center">
+                <h1>MEET OUR TEAM</h1>
+                <p align="center">
+                    We are all very different. We were born in different cities, at different times, we <br>
+                    love different music, food, movies. But we have something that unites us all. It is<br>
+                    our interest towards learning a new thing. We are not just a team, we are a family.
+                </p><br>
+                <center><a href="/contact" id="btn" class="btn-default btn-lg"><b>CONTACT US</b></a></center>
+            </font>
+        </div>
+        </div>
+        <!--pics start-->
+        <div class="row">
+            <img src="{% static 'images/book.jfif' %}" width=660><img src="{% static 'images/book.jfif' %}" width=685>
+        </div>
+        <center><h1><b>Our team</b></h1></center>
+        <div class="row">
+            <div class="col-md-offset-3 col-md-3">
+                <img src="{% static 'images/hod.jpg' %}" class="img-thumbnail img-responsive">
+                <h2>Head of department</h2>
+                <p class="tit">Coordinator</p>
+            </div>
+            <div class="col-md-3 ">
+                <img src="{% static 'images/mam.jpg' %}" class="img-thumbnail img-responsive">
+                <h2>Assistant professor</h2>
+                <p class="tit">PBL Coordinator</p>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="card">
+            <div class="col-md-offset-2 col-md-2 marginc">
+                    <img src="{% static 'images/anu.jpeg' %}" alt="anusha" height=350 width=225>
+                    <h3>Anusha S</h3>
+                    <h5>1NC17IS004</h5>
+                    <p class="title">Designer</p>
+                </div>
+                <div class="col-md-2 marginc">
+                    <img src="{% static 'images/jas.jpeg' %}" alt="jaswanth" height=350 width=225>
+                    <h3>Jaswanth Reddy</h3>
+                    <h5>1NC17IS012</h5>
+                    <p class="title">Development Analyst</p>
+                </div>
+                <div class="col-md-2 marginc">
+                    <img src="{% static 'images/nav.jpeg' %}" alt="navneet" height=350 width=225>
+                    <h3>Navneet Singh</h3>
+                    <h5>1NC17IS019</h5>
+                    <p class="title">Developer</p>
+                </div>
+                <div class="col-md-2 marginc">
+                    <img src="{% static 'images/sri.jpeg' %}" alt="srishta" height=350 width=225>
+                    <h3>Srishta Jha</h3>
+                    <h5>1NC17IS047</h5>
+                    <p class="title">Designer</p>
+                </div>
+            </div>
+            </div>
+        <br><br>
+        <div class="row" id="follow">
+            <div class="col-md-12">
+            <h1>Get connected with us on social networks!!</h1>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+       </div>
+    </div>
+</body>
+</html>
